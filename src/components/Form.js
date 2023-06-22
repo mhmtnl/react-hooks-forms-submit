@@ -31,7 +31,7 @@ function handleSubmit(event) {
     setErrors([]);
   } else if(firstName.length > 0 && lastName.length === 0 ) {
     setErrors(["Also last name is required as you coming from an origin, baby!"]);
-  } else {setErrors(["First name is required!"]);}
+  } else {setErrors(["First name is colpulsory!"]);}
 }
   const listOfSubmissions = submittedData.map((data, index) => {
     return (
@@ -51,12 +51,7 @@ function handleSubmit(event) {
         <button type="submit">Submit</button>
       </form>
       {errors.length > 0
-        ? errors.map((error, index) => (
-            <p key={index} style={{ color: "red" }}>
-              {error}
-            </p>
-          ))
-        : null}
+        ? (<p style={{ color: "red" }}> {errors} </p>) : null}
       <h3>Submissions</h3>
       {listOfSubmissions}
     </div>
